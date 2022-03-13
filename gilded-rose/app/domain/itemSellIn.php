@@ -20,4 +20,9 @@ class ItemSellIn
     {
         return $this->value < $days;
     }
+    
+    public function isEqualTo(int $days): bool
+    {
+        return $this->value === $days;
+    }
 }
