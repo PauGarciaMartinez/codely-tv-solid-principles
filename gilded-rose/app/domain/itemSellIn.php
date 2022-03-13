@@ -11,13 +11,13 @@ class ItemSellIn
     ) {
     }
   
-    public function decrease(int $value): ItemSellIn
+    public function decrease(): ItemSellIn
     {
         return new ItemSellIn($value - 1);
     }
   
     public function isLessThan(int $days): bool
     {
-        $this->value < $days;
+        return $this->value < $days;
     }
 }
