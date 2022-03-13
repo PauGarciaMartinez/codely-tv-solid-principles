@@ -11,6 +11,8 @@ use App\Domain\ItemQuality;
 
 class AgedBrie extends Item
 {
+    private const int $TRESHOLD = 50;
+    
     public function __construct(
         private ItemName $name,
         private ItemSellIn $sellIn,
@@ -20,6 +22,11 @@ class AgedBrie extends Item
   
     public function update(): void
     {
+        $this->sellIn->decrease();
+        $this->quality->decrease();
         
+        if ($this->quality->isGreaterThan($TRESHOLD)) {
+            $this->quality->increase();
+        }
     }
 }
