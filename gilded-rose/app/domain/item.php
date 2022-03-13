@@ -6,11 +6,11 @@ namespace App\Domain;
 
 abstract class Item
 {
-    public function __construct(Item)
-    {
+    public function __construct(
           private ItemName $name;
           private ItemSellIn $sellIn;
           private ItemQuality $quality;
+    ) {
     }
   
     abstract protected function update(): void;
