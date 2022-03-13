@@ -34,14 +34,14 @@ abstract class Item
     
     /* End getters region */
     
-    public function increaseSellIn(): void
-    {
-        $this->sellIn = $this->sellIn->increase();
-    }
-    
     public function decreaseSellIn(): void
     {
         $this->sellIn = $this->sellIn->decrease();
+    }
+    
+    public function hasToBeSoldIn(int $days): bool
+    {
+        return $this->sellIn->isLessThan($days);
     }
     
     public function increaseQuality(): void
