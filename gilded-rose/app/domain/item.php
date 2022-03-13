@@ -53,4 +53,14 @@ abstract class Item
     {
         $this->quality = $this->quality->decrease();
     }
+    
+    public function hasToBeLessThan(int $value): bool
+    {
+        return $this->quality->isLessThan($value);
+    }
+    
+        public function hasToBeGreaterThan(int $value): bool
+    {
+        return $this->quality->isLessThan($value);
+    }
 }
