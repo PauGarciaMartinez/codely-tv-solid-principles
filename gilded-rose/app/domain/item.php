@@ -44,6 +44,11 @@ abstract class Item
         return $this->sellIn->isLessThan($days);
     }
     
+    public function hasToBeEqualTo(int $days): bool
+    {
+        return $this->sellIn->isEqualTo($days);
+    }
+    
     public function increaseQuality(): void
     {
         $this->quality = $this->quality->increase();
@@ -61,6 +66,6 @@ abstract class Item
     
         public function hasToBeGreaterThan(int $value): bool
     {
-        return $this->quality->isLessThan($value);
+        return $this->quality->isGreaterThan($value);
     }
 }
